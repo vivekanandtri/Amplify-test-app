@@ -1,100 +1,51 @@
 import Image from "next/image";
+import Navbar from "./components/nav";
 
 export default function Home() {
   return (
-    <div className="">
-      <div className=" border-2 border-red-500 ">
-        <nav className="bg-white border-gray-200 dark:bg-gray-900">
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a
-              href="https://flowbite.com/"
-              className="flex items-center space-x-3 rtl:space-x-reverse"
-            >
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="h-8"
-                alt="Flowbite Logo"
-              />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Flowbite
-              </span>
-            </a>
-            <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-              <button
-                type="button"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Get started
-              </button>
-              <button
-                data-collapse-toggle="navbar-cta"
-                type="button"
-                className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="navbar-cta"
-                aria-expanded="false"
-              >
-                <span className="sr-only">Open main menu</span>
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 17 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M1 1h15M1 7h15M1 13h15"
-                  />
-                </svg>
-              </button>
+    <div className="h-screen">
+      <Navbar />
+      <div className=" mx-[70px] py-[20px]">
+       
+        <section className="text-gray-600 body-font">
+          <div className="container px-5 py-10 mx-auto flex flex-wrap items-center">
+            <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+              <h1 className="title-font font-medium text-3xl text-gray-900">
+                Search for Your loving Plants
+              </h1>
+              <div className="flex items-center ">
+                <input
+                  type="search"
+                  className="border-2 border-gray-400 outline-none mt-[30px] mb-[15px] py-[10px] w-[100%] rounded-lg px-[10px]"
+                  placeholder="Search "
+                />
+                <button className=" border-2 h-[47px] bg-black text-white rounded-lg mt-[15px] px-[10px] border-black">
+                  Search
+                </button>
+              </div>
+              <div className="flex space-x-3 ">
+                <div className="border-2 px-[10px] py-0.5 rounded-md cursor-pointer hover:py-[3px] hover:px-[12px] transition-all duration-300 ease-out">Rose</div>
+                <div className="border-2 px-[10px] py-0.5 rounded-md cursor-pointer">Gardenia</div>
+                <div className="border-2 px-[10px] py-0.5 rounded-md cursor-pointer">Easter Lily</div>
+               
+              </div>
+              <p className="leading-relaxed mt-4">
+                Poke slow-carb mixtape knausgaard, typewriter street art
+                gentrify hammock starladder roathse. Craies vegan tousled etsy
+                austin.
+              </p>
             </div>
-            <div
-              className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-              id="navbar-cta"
-            >
-              <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-                    aria-current="page"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 d:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
+            
+            <div className="mx-auto">
+              <img
+                src="https://imgs.search.brave.com/noPvQlwMSuOVR-voXvsScqy9WlqbqS4y0K_cqVTPhfk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9ibG9v/bXNjYXBlLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMS8x/MC8yMDIwMDkyM19C/bG9vbXNjYXBlX1Ry/aXNoX18wMDQ2XzEx/ODUlRTIlODAlOEEl/QzMlOTclRTIlODAl/OEExNTgyLTc2N3gx/MDI0LmpwZw"
+                alt="photo"
+                className="h-[500px] border-black border-4 rounded-[12px]"
+              />
             </div>
           </div>
-        </nav>
+        </section>
       </div>
-      <h1 className="text-[40px] font-extrabold">hello world</h1>
     </div>
   );
 }
