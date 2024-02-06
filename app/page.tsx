@@ -1,8 +1,7 @@
 'use client'
-import Image from "next/image";
 import Navbar from "./components/nav";
 import '../app/components/page.css'
-import { useEffect, useRef, useState } from "react";
+import {  useState } from "react";
 import {PlantsArray} from '@/components/utils/Productdetl'
 import Link from "next/link";
 
@@ -12,11 +11,6 @@ export default function Home() {
     let filtered = PlantsArray.find(obj => {
       return obj.name === `${search}`;
     });
-  
-  
-  let sorrymsg = document.querySelector('sorrymsg')
-  
-    
   
   const HandleSeach= () =>{
    

@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const currentRoute = usePathname();
-  const [LoginType, setloginType] = useState<string>('')
     
   return (
 
