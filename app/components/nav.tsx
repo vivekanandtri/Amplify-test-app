@@ -3,9 +3,11 @@ import Link from "next/link";
 import React, { useState } from "react";
 import './page.css'
 import Sidebar from "./Sidebar";
-
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
+  const currentRoute = usePathname();
+  const [LoginType, setloginType] = useState<string>('')
     
   return (
 
@@ -19,29 +21,31 @@ const Navbar = () => {
             alt="img"
             className="w-[40px] h-[40px] rounded-full"
           />
-          <span className="ml-3 text-xl">PlantPura</span>
+          <span className="ml-3 text-xl">Ritik's Plant House</span>
            </Link>
           <div className="">
 
           <Sidebar/>
           </div>
         </div>
-        <nav className="nav md:ml-auto md:mr-auto mx-auto flex flex-wrap items-center text-base justify-center">
-          <Link href={"/"} className="mr-8 hover:text-gray-900">
+        <nav className="nav md:ml-auto md:mr-auto mx-auto flex flex-wrap items-center text-base justify-center ">
+          <Link href={"/"}  className={currentRoute=='/' ? "mr-8 hover:text-gray-900 border-b-2 px-1  border-black text-black font-[500]" : 'mr-8 hover:text-gray-900'}>
             Home
           </Link>
-          <Link href={'/Plants'} className="mr-8 hover:text-gray-900">Plants</Link>
-          <Link href={"/About"} className="mr-8 hover:text-gray-900">
+          <Link href={'/Plants'}  className={currentRoute=='/Plants' ? "mr-8 hover:text-gray-900 border-b-2 px-1  border-black text-black font-[500]" : 'mr-8 hover:text-gray-900'}>Plants</Link>
+          <Link href={"/About"}  className={currentRoute=='/About' ? "mr-8 hover:text-gray-900 border-b-2 px-1  border-black text-black font-[500]" : 'mr-8 hover:text-gray-900'}>
             About
           </Link>
-          <a className="mr-8 hover:text-gray-900">Contect us</a>
+          <Link href={'/Contact'}  className={currentRoute=='/Contact' ? "mr-8 hover:text-gray-900 border-b-2 px-1  border-black text-black font-[500]" : 'mr-8 hover:text-gray-900'}>Contect us</Link>
         </nav>
-        <div className="login flex ">
-        <button className="inline-flex items-center mx-2 bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+        <div  className="login flex ">
+          <Link href={'/Signup'}>
+          <button className={currentRoute =='/Signup' ?"inline-flex items-center mx-2 text-white bg-gray-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-base mt-4 md:mt-0" :'inline-flex items-center mx-2 bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0'}>
           SignUp
         </button>
+          </Link>
         <Link href={"/Login"}>
-          <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+          <button className={currentRoute == '/Login' ?"inline-flex items-center mx-2 bg-gray-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-base mt-4 md:mt-0" :'inline-flex items-center mx-2 bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0'}>
             Login
           </button>
         </Link>

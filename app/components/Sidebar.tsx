@@ -23,7 +23,7 @@ const Sidebar = () => {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>PlantLand</SheetTitle>
+          <SheetTitle>Ritik's Plant House</SheetTitle>
           <SheetDescription>
             <ul className='grid grid-cols-1'>
                 <Link href={'/'} className='hover:bg-[#349ecf] hover:text-white py-3 px-5 rounded-lg transition-colors '>Home</Link>

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Navbar from "./components/nav";
 import '../app/components/page.css'
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {PlantsArray} from '@/components/utils/Productdetl'
 import Link from "next/link";
 
@@ -16,6 +16,7 @@ export default function Home() {
   
 
   
+    
   
   const HandleSeach= () =>{
    
@@ -38,24 +39,29 @@ export default function Home() {
                   placeholder="Search "
                   value={search}
                   onChange={(e:React.ChangeEvent<HTMLInputElement>)=>setsearch(e.target.value)}
+                  list="Plants"
                 />
+                <datalist id="Plants" className="accent-black  ">
+                  <option value="Rose" className="text-white">Rose</option>
+                  <option value="Alovera">Alovera</option>
+                  <option value="Green Grass">Green Grass</option>
+                  <option value="red-lily">red-lily</option>
+                  <option value="Lotus">Lotus</option>
+
+                </datalist>
                 <Link href={`./Products/${filtered?.id}`}>
                   <button onClick={HandleSeach} className=" border-2 h-[47px] bg-black text-white rounded-lg mt-[15px] px-[12px] border-black">
                   Search
                 </button>
                  </Link>
               </div>
-              <div className="flex space-x-3 ">
-                <div id="Suggetion" className=" border-2 px-[10px] py-0.5 rounded-md cursor-pointer hover:py-[3px] hover:px-[12px] transition-all duration-300 ease-out">Rose</div>
-                <div className="border-2 px-[10px] py-0.5 rounded-md cursor-pointer">Gardenia</div>
-                <div className="border-2 px-[10px] py-0.5 rounded-md cursor-pointer">Easter Lily</div>
-               
-              </div>
+              
               <p className="leading-relaxed mt-4">
                 Poke slow-carb mixtape knausgaard, typewriter street art
                 gentrify hammock starladder roathse. Craies vegan tousled etsy
                 austin.
               </p>
+            
             </div>
             
             <div className="mx-auto py-2">
@@ -65,6 +71,7 @@ export default function Home() {
                 className="h-[500px] border-black border-4 rounded-[12px]"
               />
             </div>
+
           </div>
         </section>
       </div>

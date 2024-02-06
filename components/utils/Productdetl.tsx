@@ -2,7 +2,7 @@ export let PlantsArray = [
     {
         id:'1',
         img_url:'https://images.pexels.com/photos/793012/pexels-photo-793012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      name:'ALovera',
+      name:'Alovera',
       price:'₹200'
     },
     {
@@ -14,7 +14,7 @@ export let PlantsArray = [
     {
         id:'3',
         img_url:'https://images.pexels.com/photos/1141792/pexels-photo-1141792.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      name:'Random',
+      name:'Green Grass',
       price:'₹210'
     },
     {
