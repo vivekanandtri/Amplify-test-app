@@ -1,4 +1,5 @@
 'use client'
+import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/nav"
 import {PlantsArray} from '@/components/utils/Productdetl'
 import { useState } from "react";
@@ -113,6 +114,7 @@ export default function Page({ params }: { params: { product: string } }) {
     </div>
   </div>
 </section>
+<Footer/>
       </div>
          )
   }

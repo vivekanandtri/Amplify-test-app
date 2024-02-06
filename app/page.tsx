@@ -14,12 +14,18 @@ export default function Home() {
     });
   
   
-
+  let sorrymsg = document.querySelector('sorrymsg')
   
     
   
   const HandleSeach= () =>{
-   
+   if(filtered?.name==''){
+    console.log('free')
+    sorrymsg?.classList.remove('hidden')
+   }
+   else{
+    sorrymsg?.classList.add('hidden')
+   }
   }
   return (
     <div className="h-screen">
@@ -41,21 +47,21 @@ export default function Home() {
                   onChange={(e:React.ChangeEvent<HTMLInputElement>)=>setsearch(e.target.value)}
                   list="Plants"
                 />
-                <datalist id="Plants" className="accent-black  ">
-                  <option value="Rose" className="text-white">Rose</option>
+                <datalist id="Plants" >
+                  <option value="Rose" >Rose</option>
                   <option value="Alovera">Alovera</option>
                   <option value="Green Grass">Green Grass</option>
                   <option value="red-lily">red-lily</option>
                   <option value="Lotus">Lotus</option>
 
                 </datalist>
-                <Link href={`./Products/${filtered?.id}`}>
+               { <Link href={filtered?.name ? `./Products/${filtered?.id}` : '/'}>
                   <button onClick={HandleSeach} className=" border-2 h-[47px] bg-black text-white rounded-lg mt-[15px] px-[12px] border-black">
                   Search
                 </button>
-                 </Link>
+                 </Link>}
               </div>
-              
+              <div className="sorrymsg hidden">Sorry we don't have {`${search}`}</div>
               <p className="leading-relaxed mt-4">
                 Poke slow-carb mixtape knausgaard, typewriter street art
                 gentrify hammock starladder roathse. Craies vegan tousled etsy

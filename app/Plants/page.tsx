@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/nav'
 import Link from 'next/link'
 import {PlantsArray} from '@/components/utils/Productdetl'
+import Footer from '../components/Footer'
 const Plants = () => {
     
   return (
@@ -26,6 +27,7 @@ const Plants = () => {
     </div>
   </div>
 </section>
+<Footer/>
     </div>
   )
 }

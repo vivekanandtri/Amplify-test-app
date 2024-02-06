@@ -29,9 +29,9 @@ const Sidebar = () => {
                 <Link href={'/'} className='hover:bg-[#349ecf] hover:text-white py-3 px-5 rounded-lg transition-colors '>Home</Link>
                 <Link href={'/Plants'} className='hover:bg-[#349ecf] hover:text-white py-3 px-5 rounded-lg transition-colors '>Plants</Link>
                 <Link href={'/About'} className='hover:bg-[#349ecf] hover:text-white py-3 px-5 rounded-lg transition-colors '>About us </Link >
-                <Link href={'/'} className='hover:bg-[#349ecf] hover:text-white py-3 px-5 rounded-lg transition-colors '>Contece us </Link>
+                <Link href={'/Contact'} className='hover:bg-[#349ecf] hover:text-white py-3 px-5 rounded-lg transition-colors '>Contece us </Link>
                 <Link href={'/Login'} className='hover:bg-[#349ecf] hover:text-white py-3 px-5 rounded-lg transition-colors '>Login</Link>
-                <Link href={'/'} className='hover:bg-[#349ecf] hover:text-white py-3 px-5 rounded-lg transition-colors '>Sign-Up</Link>
+                <Link href={'/Signup'} className='hover:bg-[#349ecf] hover:text-white py-3 px-5 rounded-lg transition-colors '>Sign-Up</Link>
             </ul>
             
           </SheetDescription>

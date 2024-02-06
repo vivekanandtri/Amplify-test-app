@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import Navbar from "../components/nav";
+import Footer from "../components/Footer";
 
 const Signup = () => {
   
@@ -44,6 +45,7 @@ const Signup = () => {
           
         </div>
       </div>
+      <Footer/>
     </section>
   );
 };
