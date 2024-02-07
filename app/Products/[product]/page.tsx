@@ -3,6 +3,11 @@ import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/nav"
 import {PlantsArray} from '@/components/utils/Productdetl'
 import { useState } from "react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 export default function Page({ params }: { params: { product: string } }) {
     const found = PlantsArray.find(obj => {
         return obj.id == `${params.product}`;
@@ -76,11 +81,25 @@ export default function Page({ params }: { params: { product: string } }) {
         <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
           
         </div>
-        <div className="flex">
+        
+      <div className="flex">
           <span className="title-font font-medium text-2xl text-gray-900">{found?.price}</span>
-          <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Buy Now</button>
+         
+        <Popover>
+      <PopoverTrigger asChild>
+      <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Buy Now</button>
+      </PopoverTrigger>
+      <PopoverContent className="w-72">
+        <div className="grid gap-4">
+          <div className="space-y-2">
+            <h4 className="font-medium leading-none text-center">Added to Cart</h4>
+            
+          </div>
           
         </div>
+      </PopoverContent>
+    </Popover>
+    </div>
         <div className="">
         <div className=" sm:flex w-full">
                 <input
@@ -113,6 +132,7 @@ export default function Page({ params }: { params: { product: string } }) {
       </div>
     </div>
   </div>
+  
 </section>
 <Footer/>
       </div>
