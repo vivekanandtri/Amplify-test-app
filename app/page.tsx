@@ -1,25 +1,31 @@
-'use client'
+"use client";
 import Navbar from "./components/nav";
-import '../app/components/page.css'
-import {  useState } from "react";
-import {PlantsArray} from '@/components/utils/Productdetl'
+import "../app/components/page.css"; 
+import '../app/page.css'
+import { useState } from "react";
+import { PlantsArray } from "@/components/utils/Productdetl";
 import Link from "next/link";
+import { Amplify } from "aws-amplify";
+import amplifyconfig from '../src/amplifyconfiguration.json';
+import '@aws-amplify/ui-react/styles.css'
+import { Authenticator, withAuthenticator } from "@aws-amplify/ui-react";
 
-export default function Home() {
-  const [search , setsearch] = useState<string>('')
-   
-    let filtered = PlantsArray.find(obj => {
-      return obj.name === `${search}`;
-    });
-  
-  const HandleSeach= () =>{
-   
-  }
+
+Amplify.configure(amplifyconfig);
+
+function Home() {
+  const [search, setsearch] = useState<string>("");
+
+  let filtered = PlantsArray.find((obj) => {
+    return obj.name === `${search}`;
+  });
+
+  const HandleSeach = () => {};
   return (
+   <Authenticator.Provider>
     <div className="h-screen">
       <Navbar />
       <div className="main_container mx-[70px] py-[20px]">
-       
         <section className="text-gray-600 body-font">
           <div className="container px-5 py-10 mx-auto flex flex-wrap items-center">
             <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
@@ -32,32 +38,42 @@ export default function Home() {
                   className="border-2 border-gray-400 outline-none mt-[30px] mb-[15px] py-[10px] w-[100%] rounded-lg px-[10px]"
                   placeholder="Search "
                   value={search}
-                  onChange={(e:React.ChangeEvent<HTMLInputElement>)=>setsearch(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setsearch(e.target.value)
+                  }
                   list="Plants"
                 />
-                <datalist id="Plants" >
-                  <option value="Rose" >Rose</option>
+                <datalist id="Plants">
+                  <option value="Rose">Rose</option>
                   <option value="Alovera">Alovera</option>
                   <option value="Green Grass">Green Grass</option>
                   <option value="red-lily">red-lily</option>
                   <option value="Lotus">Lotus</option>
-
                 </datalist>
-                <Link href={filtered?.name ? `./Products/${filtered?.id}` : './'}>
-                  <button onClick={HandleSeach} className=" border-2 h-[47px] bg-black text-white rounded-lg mt-[15px] px-[12px] border-black">
-                  Search
-                </button>
-                 </Link>
+                <Link
+                  href={filtered?.name ? `./Products/${filtered?.id}` : "./"}
+                >
+                  <button
+                    onClick={HandleSeach}
+                    className=" border-2 h-[47px] bg-black text-white rounded-lg mt-[15px] px-[12px] border-black"
+                  >
+                    Search
+                  </button>
+                </Link>
               </div>
-              <div className="sorrymsg hidden">Sorry we don't have {`${search}`}</div>
+              <div className="sorrymsg hidden">
+                Sorry we don't have {`${search}`}
+              </div>
               <p className="leading-relaxed mt-4">
                 Poke slow-carb mixtape knausgaard, typewriter street art
                 gentrify hammock starladder roathse. Craies vegan tousled etsy
                 austin.
               </p>
-            
+              <Link href={"/AddPlant"}>
+                <button className="btnmain"> Post your plant</button>
+              </Link>
             </div>
-            
+
             <div className="mx-auto py-2">
               <img
                 src="https://imgs.search.brave.com/noPvQlwMSuOVR-voXvsScqy9WlqbqS4y0K_cqVTPhfk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9ibG9v/bXNjYXBlLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMS8x/MC8yMDIwMDkyM19C/bG9vbXNjYXBlX1Ry/aXNoX18wMDQ2XzEx/ODUlRTIlODAlOEEl/QzMlOTclRTIlODAl/OEExNTgyLTc2N3gx/MDI0LmpwZw"
@@ -65,10 +81,12 @@ export default function Home() {
                 className="h-[500px] border-black border-4 rounded-[12px]"
               />
             </div>
-
           </div>
         </section>
       </div>
     </div>
+    </Authenticator.Provider>
   );
 }
+
+export default Home;
