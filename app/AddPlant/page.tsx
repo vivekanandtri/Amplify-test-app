@@ -29,25 +29,35 @@ const Create = () => {
     setFile("");
   };
 
-  const savedata = (e: React.FormEvent<HTMLFormElement>) => {
+  const savedata = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const form = e.target as HTMLFormElement; // Type assertion
-    const fd = new FormData(form);
-    const formobj = Object.fromEntries(fd.entries());
-    console.log(formobj);
+    // const form = e.target as HTMLFormElement; // Type assertion
+    // const fd = new FormData(form);
+    // const formobj = Object.fromEntries(fd.entries());
     setname("");
     setDescription("");
     setPrice("");
     setFile("");
     setpopup(true)
+    let response:any = await fetch("http://localhost:3000/api/upload",{
+      method:"post",
+      body: JSON.stringify({name, Price,Description,File }),
+    })
+    response = await response.json()
+    if(response.success){
+        alert("Success")
+    }
+    else{
+      alert("Error")
+    }
+    console.log(Response)
   };
 
   
 
   return (
     <>
-      {popup && <div className="absolute h-[110%] w-[98%] flex items-center justify-center backdrop-blur-sm">
+      {/* {popup && <div className="absolute h-[110%] w-[98%] flex items-center justify-center backdrop-blur-sm">
         <span className="bg-white w-[300px] h-[300px] flex flex-col  justify-center border">
            <div className="bg-blue-400 text-white p-5 rounded-full text-center">
               Submitted
@@ -57,7 +67,7 @@ const Create = () => {
            </div>
 
         </span>
-      </div>}
+      </div>} */}
       <Navbar />
       <main className="">
         <h1 className="text-center font-bold text-[22px] my-2">
